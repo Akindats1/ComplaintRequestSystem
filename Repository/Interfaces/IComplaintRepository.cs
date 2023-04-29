@@ -8,7 +8,7 @@ namespace ComplaintRequestSystem.Repository.Interfaces
         List<Complaint> GetComplaints();
         List<Complaint> GetComplaints(Expression<Func<Complaint, bool>> expression);
         Complaint GetComplaint(Expression<Func<Complaint, bool>> expression);
-        List<DepartmentComplaint> GetComplaintByDepartmentId(string id);
-        List<DepartmentComplaint> SelectComplaintByDepartment();
+        List<Department> GetComplaintByDepartmentId(string id);
+        List<Department> SelectComplaintByDepartment();
     }
 }

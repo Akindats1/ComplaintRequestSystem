@@ -42,7 +42,7 @@ namespace ComplaintRequestSystem.Repository.Implementations
             return complaints;
         }
 
-        public List<DepartmentComplaint> GetComplaintByDepartmentId(string departmentId)
+        public List<Department> GetComplaintByDepartmentId(string departmentId)
         {
             var complaints = _context.DepartmentComplaints
                 .Include(d => d.Department)
@@ -54,7 +54,7 @@ namespace ComplaintRequestSystem.Repository.Implementations
             return complaints;
         }
 
-        public List<DepartmentComplaint> SelectComplaintByDepartment()
+        public List<Department> SelectComplaintByDepartment()
         {
             var complaints = _context.DepartmentComplaints
                 .Include(d => d.Department)

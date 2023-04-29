@@ -44,7 +44,7 @@ namespace ComplaintRequestSystem.Context
         public DbSet<Complaint> Complaints { get; set; }
         public DbSet<Request> Requests { get; set; }
         public DbSet<Department> Departments { get; set; }
-        public DbSet<DepartmentComplaint> DepartmentComplaints { get; private set; }
+        public DbSet<Department> DepartmentComplaints { get; private set; }
         public DbSet<DepartmentRequest> DepartmentRequests { get; set; }
 
     }
