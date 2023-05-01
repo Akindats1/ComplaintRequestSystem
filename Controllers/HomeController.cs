@@ -1,18 +1,17 @@
-﻿using ComplaintRequestSystem.Models;
-using ComplaintRequestSystem.Models.Authorization;
+﻿using ComplaintRequestSystem.Models.Authorization;
 using ComplaintRequestSystem.Service.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 using System.Security.Claims;
+using AspNetCoreHero.ToastNotification.Abstractions;
+using ComplaintRequestSystem.ActionFilters;
 
 namespace ComplaintRequestSystem.Controllers
 {
     public class HomeController : Controller
     {
-
         private readonly IUserService _userService;
         private readonly IComplaintService _complaintService;
         private readonly INotyfService _notyf;
@@ -23,18 +22,18 @@ namespace ComplaintRequestSystem.Controllers
             INotyfService notyf)
         {
             _userService = userService;
-            _questionService = questionService;
+            _complaintService = complaintService;
             _notyf = notyf;
         }
 
         [Authorize]
         public IActionResult Index()
         {
-            var questions = _questionService.DisplayQuestion();
-            ViewData["Message"] = questions.Message;
-            ViewData["Status"] = questions.Status;
+            var complaints = _complaintService.GetAllComplaint();
+            ViewData["Message"] = complaints.Message;
+            ViewData["Status"] = complaints.Status;
 
-            return View(questions.Data);
+            return View(complaints.Data);
         }
 
         public IActionResult SignUp()

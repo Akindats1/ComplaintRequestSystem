@@ -2,7 +2,7 @@
 
     <div class="container-fluid">
 
-        <a class="navbar-brand" asp-controller="Home" asp-action="Index">IdealDiscuss</a>
+        <a class="navbar-brand" asp-controller="Home" asp-action="Index">ComplaintRequestSystem</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -21,34 +21,44 @@
                     @if (User.IsInRole("Admin"))
                     {
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">Manage Role</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Complaint" asp-action="Index">Manage Complaint</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Manage Category</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Request" asp-action="Index">Manage Request</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Flag" asp-action="Index">Manage Flag</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Question" asp-action="Index">Question List</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Department" asp-action="Index">Manage Department</a>
                         </li>
                     }
                     else
                     {
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Question" asp-action="Create">
+                            <a class="nav-link" asp-area="" asp-controller="Complaint" asp-action="Create">
                                 <i class="fas fa-user"></i>
-                                Ask A Question
+                                Make a Complaint
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Question" asp-action="Index">
+                            <a class="nav-link" asp-area="" asp-controller="Cpmplaint" asp-action="Index">
                                 <i class="fas fa-user"></i>
-                                My Questions
+                                My Complaints
+                            </a>
+                        </li>
+
+                         <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Request" asp-action="Create">
+                                <i class="fas fa-user"></i>
+                                Make a Request
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Cpmplaint" asp-action="Index">
+                                <i class="fas fa-user"></i>
+                                My Requests
                             </a>
                         </li>
                     }

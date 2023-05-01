@@ -1,4 +1,5 @@
 ﻿using ComplaintRequestSystem.Entities;
+using ComplaintRequestSystem.Helper;
 
 namespace ComplaintRequestSystem.Context
 {
@@ -45,6 +46,37 @@ namespace ComplaintRequestSystem.Context
             }
 
             context.SaveChanges();
+
+
+            var password = "password1";
+            var salt = HashingHelper.GenerateSalt();
+            var admin = context.Roles.Where(r => r.RoleName == "Admin").SingleOrDefault();
+
+            var users = new User[]
+            {
+                new User()
+                {
+                    UserName = "admin",
+                    HashSalt = salt,
+                    PasswordHash = HashingHelper.HashPassword(password, salt),
+                    Email = "admin@gmail.com",
+                    RoleId = admin.Id,
+                    CreatedBy = "System",
+                    DateCreated = DateTime.Now,
+                    IsDeleted = false,
+                    ModifiedBy = "",
+                    LastModified = new DateTime()
+                }
+            };
+
+            foreach (var u in users)
+            {
+                context.Users.Add(u);
+            }
+
+            context.SaveChanges();
         }
     }
+
 }
+
