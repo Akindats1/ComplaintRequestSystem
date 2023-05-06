@@ -1,8 +1,20 @@
-﻿@{
+﻿@model List<ComplaintRequestSystem.Models.Complaint.ComplaintViewModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@if (Model is not null)
+{
+    @foreach (var complaint in Model)
+    {
+        <h4>@complaint.ComplaintText</h4>
+
+        <div>
+            <button type="button" class="btn btn-warning btn-sm">
+                By @complaint.UserName
+            </button>
+        </div>
+
+    }           
+
+}

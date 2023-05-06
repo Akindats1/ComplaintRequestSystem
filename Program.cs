@@ -42,7 +42,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
                .AddCookie(config =>
                {
                    config.LoginPath = "/home/login";
-                   config.Cookie.Name = "IdealDiscussion";
+                   config.Cookie.Name = "ComplaintRequestSystem";
                    config.ExpireTimeSpan = TimeSpan.FromDays(1);
                    config.AccessDeniedPath = "/home/privacy";
                });
@@ -69,5 +69,5 @@ app.UseNotyf();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+ 
 app.Run();

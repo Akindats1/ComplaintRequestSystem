@@ -36,6 +36,7 @@ namespace ComplaintRequestSystem.Controllers
             return View(complaints.Data);
         }
 
+        [HttpGet]
         public IActionResult SignUp()
         {
             return View();
@@ -46,7 +47,7 @@ namespace ComplaintRequestSystem.Controllers
         {
             var response = _userService.Register(model);
 
-            if (response.Status is false)
+            if (response.Status == false)
             {
                 _notyf.Error(response.Message);
 
