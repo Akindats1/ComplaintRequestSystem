@@ -47,7 +47,7 @@ namespace ComplaintRequestSystem.Controllers
         {
             var response = _userService.Register(model);
 
-            if (response.Status == false)
+            if (response.Status is false)
             {
                 _notyf.Error(response.Message);
 

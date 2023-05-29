@@ -5,8 +5,7 @@ namespace ComplaintRequestSystem.Models.Authorization
     public class SignUpViewModel
     {
         [Required(ErrorMessage = "Username is required.")]
-        [MinLength(3, ErrorMessage = "The minimum lenght is 3.")]
-        [MaxLength(10)]
+        [Range(3,10, ErrorMessage = "The minimum length is 3 and the maximum length is 10!")]
         public string UserName { get; set; }
 
         [Required]
@@ -22,6 +21,8 @@ namespace ComplaintRequestSystem.Models.Authorization
 
         [Required]
         [DataType(DataType.EmailAddress)]
+        //[EmailAddress]
         public string Email { get; set; }
+        
     }
 }

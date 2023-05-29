@@ -51,6 +51,7 @@ namespace ComplaintRequestSystem.Service.Implementations
             {
                 _unitOfWork.Departments.Create(department);
                 _unitOfWork.SaveChanges();
+
                 response.Status = true;
                 response.Message = "Department created successfully.";
 
